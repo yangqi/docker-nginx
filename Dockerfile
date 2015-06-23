@@ -1,20 +1,25 @@
 #
 # Nginx Dockerfile
 #
-# https://github.com/dockerfile/nginx
+# https://github.com/yangqi/nginx
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM yangqi/debian
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # Install Nginx.
 RUN \
-  add-apt-repository -y ppa:nginx/stable && \
+  echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list.d/nginx.list && \
+  echo "deb-src http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list.d/nginx.list && \
+  wget -q http://nginx.org/keys/nginx_signing.key && \
+  apt-key add nginx_signing.key && \
   apt-get update && \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+  chown -R www-data:www-data /usr/share/nginx
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
