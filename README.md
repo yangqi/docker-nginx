@@ -1,26 +1,26 @@
 ## Nginx Dockerfile
 
 
-This repository contains **Dockerfile** of [Nginx](http://nginx.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/dockerfile/nginx/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
+This repository contains **Dockerfile** of [Nginx](http://nginx.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/yangqi/docker-nginx/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 
 ### Base Docker Image
 
-* [yangqi/debian](http://dockerfile.github.io/#/ubuntu)
+* [yangqi/docker-debian](http://dockerfile.github.io/#/ubuntu)
 
 
 ### Installation
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download [automated build](https://registry.hub.docker.com/u/yangqi/nginx/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull yangqi/nginx`
+2. Download [automated build](https://registry.hub.docker.com/u/yangqi/docker-nginx/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull yangqi/docker-nginx`
 
-   (alternatively, you can build an image from Dockerfile: `docker build -t="yangqi/nginx" github.com/yangqi/nginx`)
+   (alternatively, you can build an image from Dockerfile: `docker build -t="yangqi/docker-nginx" github.com/yangqi/docker-nginx`)
 
 
 ### Usage
 
-    docker run -d -p 80:80 yangqi/nginx
+    docker run -d -p 80:80 yangqi/docker-nginx
 
 #### Attach persistent/shared directories
 
