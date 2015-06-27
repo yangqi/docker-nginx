@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM yangqi/debian
+FROM yangqi/docker-debian
 
 ENV DEBIAN_FRONTEND noninteractive
 
